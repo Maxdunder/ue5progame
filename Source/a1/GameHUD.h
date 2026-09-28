@@ -7,7 +7,7 @@
 class UProgressBar;
 
 UCLASS(Abstract)
-class GameHUD_API UGameHUD : public UUserWidget
+class A1_API UGameHUD : public UUserWidget
 {
 	GENERATED_BODY()
 
@@ -20,9 +20,17 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetStamina(float CurrentStamina, float MaxStamina);
 
+	/** Update HUD with current power. */
+	UFUNCTION(BlueprintCallable)
+	void SetPo(float CurrentPower, float MaxPower);
+
 	/** Widget to use to display current health. */
 	UPROPERTY(meta = (BindWidget))
 	UProgressBar* HealthBar;
+
+	/** Widget to use to display current power. */
+	UPROPERTY(meta = (BindWidget))
+	UProgressBar* PowerBar;
 
 	/** Widget to use to display current stamina. */
 	UPROPERTY(meta = (BindWidget))
