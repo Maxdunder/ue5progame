@@ -24,11 +24,15 @@ public:
 
 	/** Update HUD with current power. */
 	UFUNCTION(BlueprintCallable)
-	void SetPower(float CurrentPower, float MaxPower);
+void SetPower(float CurrentPower, float MaxPower);
 
 	/** Widget to use to display current health. */
 	UPROPERTY(meta = (BindWidget))
 	UProgressBar* HealthBar;
+
+	/** Widget to use to display current power. */
+	UPROPERTY(meta = (BindWidget))
+	UProgressBar* PowerBar;
 
 	/** Widget to use to display current stamina. */
 	UPROPERTY(meta = (BindWidget))
