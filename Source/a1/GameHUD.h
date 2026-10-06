@@ -7,11 +7,13 @@
 class UProgressBar;
 
 UCLASS(Abstract)
-class GameHUD_API UGameHUD : public UUserWidget
+class A1_API UGameHUD : public UUserWidget
 {
 	GENERATED_BODY()
 
 public:
+
+
 	/** Update HUD with current health. */
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(float CurrentHealth, float MaxHealth);
@@ -20,6 +22,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetStamina(float CurrentStamina, float MaxStamina);
 
+	/** Update HUD with current power. */
+	UFUNCTION(BlueprintCallable)
+	void SetPower(float CurrentPower, float MaxPower);
+
 	/** Widget to use to display current health. */
 	UPROPERTY(meta = (BindWidget))
 	UProgressBar* HealthBar;
@@ -27,4 +33,16 @@ public:
 	/** Widget to use to display current stamina. */
 	UPROPERTY(meta = (BindWidget))
 	UProgressBar* StaminaBar;
+
+	/** Widget to use to display current power. */
+	UPROPERTY(meta = (BindWidget))
+	UProgressBar* PowerBar;
+
+	UPROPERTY(EditAnywhere)
+	//widget class to spawn for the heads up display
+	TSubclassOf<class UGameHUD> GameHUDClass;
+
+	// the widget instance that we are using as our HUD
+	UPROPERTY()
+	class UGameHUD* GameHUDInstance;
 };
